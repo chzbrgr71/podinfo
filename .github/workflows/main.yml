@@ -5,17 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag chzbrgr71/podinfo:${{ github.sha }}
-    - name: Login to Docker Hub
-      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: Push the Docker image
-      run: docker push chzbrgr71/podinfo:${{ github.sha }}
+#    - name: Build the Docker image
+#      run: docker build . --file Dockerfile --tag chzbrgr71/podinfo:${{ github.sha }}
+#    - name: Login to Docker Hub
+#      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+#    - name: Push the Docker image
+#      run: docker push chzbrgr71/podinfo:${{ github.sha }}
     - uses: azure/aks-set-context@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}' # Azure credentials
-        resourceGroupName: 'briar-service-mesh-02'
-        clusterName: 'briar-service-mesh-02'
+        resource-group: 'briar-service-mesh-02'
+        cluster-name: 'briar-service-mesh-02'
       id: login
 
 # https://github.com/Azure/aks-set-context 
