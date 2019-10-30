@@ -17,5 +17,10 @@ jobs:
         resource-group: 'briar-service-mesh-02'
         cluster-name: 'briar-service-mesh-02'
       id: login
+    - uses: azure/setup-kubectl@v1
+      with:
+        version: 'latest'
+      id: install
+    - run: kubectl get node
 
 # https://github.com/Azure/aks-set-context 
