@@ -6,4 +6,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag chzbrgr71/podinfo:${{ <github.sha> }}
+      run: docker build . --file Dockerfile --tag chzbrgr71/podinfo:${{ github.sha }}
