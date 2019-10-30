@@ -1,0 +1,9 @@
+name: Container CI/CD
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag chzbrgr71/podinfo:${{ <github.sha> }}
